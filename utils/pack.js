@@ -4,6 +4,7 @@ const globby = require( 'globby' );
 const file = 'my-ystandard';
 
 fs.copySync( 'assets', `${ file }/assets` );
+fs.copySync( 'inc', `${ file }/inc` );
 
 const phps = globby.sync( '*.php' );
 

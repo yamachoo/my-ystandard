@@ -3,16 +3,15 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build:js": "rm -rf assets/js && wp-scripts build src/js/*.js --output-path=assets/js --mode=production",
     "build:css": "rm -rf assets/css && sass src/scss:assets/css --no-source-map && postcss assets/css --replace",
     "build": "run-p build:*",
     "lint:php": "composer format && composer lint",
     "lint:js": "wp-scripts format-js --ignore-path .gitignore && wp-scripts lint-js --fix --ignore-path .gitignore",
     "lint:scss": "wp-scripts lint-style --fix --ignore-path .gitignore",
     "lint": "run-p lint:*",
-    "zip:pack": "rm -rf dist && node utils/pack",
-    "zip:archive": "rm -f dist.zip && node utils/archive",
-    "zip": "npm run build && npm run zip:pack && npm run zip:archive"
+    "zip:pack": "rm -rf my-ystandard && node utils/pack",
+    "zip:archive": "rm -f my-ystandard.zip && node utils/archive",
+    "zip": "npm run build && npm run zip:pack && npm run zip:archive && rm -rf my-ystandard"
   },
   "simple-git-hooks": {
     "pre-commit": "npx lint-staged"
